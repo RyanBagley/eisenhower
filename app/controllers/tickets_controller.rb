@@ -36,6 +36,13 @@ class TicketsController < ApplicationController
     @tickets = Ticket.all
   end
 
+  def destroy
+    @ticket = Ticket.find(params[:id])
+    @ticket.destroy
+    flash[:notice] = "Ticket was deleted successfully"
+    redirect_to tickets_path
+  end
+
   private
 
   def ticket_params
