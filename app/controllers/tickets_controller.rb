@@ -1,5 +1,7 @@
 class TicketsController < ApplicationController
 
+  before_action :set_ticket, only: [:edit, :update, :show, :destroy]
+
   def new
     @ticket = Ticket.new
   end
@@ -15,15 +17,15 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
+
   end
 
   def edit
-    @ticket = Ticket.find(params[:id])
+
   end
 
   def update
-    @ticket = Ticket.find(params[:id])
+
     if @ticket.update(ticket_params)
       flash[:notice] = "Ticket was updated successfully"
       redirect_to ticket_path(@ticket)
@@ -37,13 +39,17 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    @ticket = Ticket.find(params[:id])
+
     @ticket.destroy
     flash[:notice] = "Ticket was deleted successfully"
     redirect_to tickets_path
   end
 
   private
+
+  def set_ticket
+    @ticket = Ticket.find(params[:id])
+  end
 
   def ticket_params
     params.require(:ticket).permit(:name, :description)
