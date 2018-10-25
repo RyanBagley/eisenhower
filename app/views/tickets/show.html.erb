@@ -7,3 +7,6 @@
 <p>
   description: <%= @ticket.description %>
 </p>
+
+<%= link_to "Edit this ticket", edit_ticket_path(@ticket) %> |
+<%= link_to "Back to tickets listing", tickets_path %>

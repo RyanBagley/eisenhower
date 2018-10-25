@@ -1,0 +1,20 @@
+<h1>Listing all Tickets</h1>
+
+<p>
+  <%=link_to "Create a ticket", new_ticket_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.name %></td>
+      <td><%= ticket.description %></td>
+      <td><%= link_to "Edit", edit_ticket_path(ticket) %></td>
+      <td><%= link_to "Show", ticket_path(ticket) %></td>
+    </tr>
+  <% end %>
+</table>

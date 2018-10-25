@@ -32,6 +32,10 @@ class TicketsController < ApplicationController
     end
   end
 
+  def index
+    @tickets = Ticket.all
+  end
+
   private
 
   def ticket_params
