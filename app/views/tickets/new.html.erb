@@ -1,3 +1,13 @@
-<h1>Create a new ticket</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Create a new ticket</h1>
+      <%= render 'form'%>
+    </div>
+  </div>
+</div>
 
-<%= render 'form'%>
+<div class="text-center">
+  <%= link_to "Home", root_path, class: "btn btn-primary" %>
+</div>
+

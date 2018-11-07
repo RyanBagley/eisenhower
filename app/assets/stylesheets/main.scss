@@ -1,0 +1,61 @@
+$cell-size: 150px;
+$priority-red: #B90504;
+ul.matrix {
+  position: relative;
+  left: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: $cell-size * 3;
+  li.cell {
+    background-color: #ddd;
+    width: $cell-size;
+    height: $cell-size / 1.75;
+    float: left;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+    &.selected {
+      border: 5px solid #333;
+    }
+    // Highest.
+    &:nth-child(3) {
+      background-color: $priority-red;
+    }
+    &:nth-child(2),
+    &:nth-child(6) {
+      background-color: lighten($priority-red, 25%);
+    }
+    &:nth-child(1),
+    &:nth-child(5),
+    &:nth-child(9) {
+      background-color: lighten($priority-red, 35%);
+    }
+    &:nth-child(4),
+    &:nth-child(8) {
+      background-color: lighten($priority-red, 45%);
+    }
+    // Lowest.
+    &:nth-child(7) {
+      background-color: lighten($priority-red, 55%);
+    }
+    input {
+      visibility: hidden;
+    }
+  }
+}
+
+
+
+.urgency {
+  position: relative;
+  top: 120%;
+}
+
+.importance {
+  position: relative;
+  right: 100%;
+}
+
+
